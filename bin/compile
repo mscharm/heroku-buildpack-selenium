@@ -43,10 +43,6 @@ apt-get $APT_OPTIONS update | indent
 topic "Fetching .debs for xserver-xorg-core libgl1-mesa-dri xvfb libglide3 xfs unzip"
 apt-get $APT_OPTIONS -y -d install xserver-xorg-core libgl1-mesa-dri xvfb libglide3 xfs unzip | indent
 
-topic "Fetching google chrome"
-CHROME_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-curl $CHROME_URL -s -o $APT_CACHE_DIR/archives/google-chrome-stable_current_amd64.deb
-
 mkdir -p $BUILD_DIR/.apt
 
 for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
