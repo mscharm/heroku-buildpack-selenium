@@ -1,8 +1,4 @@
-#!/usr/bin/env bash
-# bin/detect <build-dir>
+#!/bin/sh
 
-if [ -f $1/package.json ]; then
-  echo "Selenium" && exit 0
-else
-  echo "no" && exit 1
-fi
+echo "Selenium"
+exit 0
