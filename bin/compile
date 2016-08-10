@@ -60,12 +60,12 @@ curl --silent --location http://heroku-jvm-common.s3.amazonaws.com/jvm-buildpack
 . bin/util
 . bin/java
 
-# create default system.properties 
+# create default system.properties
 if [ ! -f ${BUILD_DIR}/system.properties ]; then
   echo "java.runtime.version=1.7" > ${BUILD_DIR}/system.properties
 fi
 
-# install JDK 
+# install JDK
 javaVersion=$(detect_java_version ${BUILD_DIR})
 topic "Installing OpenJDK ${javaVersion}..."
 install_java ${BUILD_DIR} ${javaVersion}
@@ -78,6 +78,13 @@ mkdir -p $BUILD_DIR/vendor/selenium/bin
 topic "Downloading and installing Selenium"
 selenium_url="http://selenium-release.storage.googleapis.com/2.40/selenium-server-standalone-2.40.0.jar"
 curl $selenium_url -s -o $BUILD_DIR/vendor/selenium/selenium.jar
+
+# Download google chrome driver
+topic "Downloading and installing ChromeDriver"
+chromedriver_url="http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip"
+curl $chromedriver_url -s -o $BUILD_DIR/vendor/selenium/bin/chromedriver.zip
+unzip $BUILD_DIR/vendor/selenium/bin/chromedriver.zip
+rm $BUILD_DIR/vendor/selenium/bin/chromedriver.zip
 
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
