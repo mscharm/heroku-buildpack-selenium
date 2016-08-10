@@ -76,7 +76,7 @@ mkdir -p $BUILD_DIR/vendor/selenium/bin
 
 # Download selenium standalone server
 topic "Downloading and installing Selenium"
-selenium_url="http://selenium-release.storage.googleapis.com/2.40/selenium-server-standalone-2.40.0.jar"
+selenium_url="http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar"
 curl $selenium_url -s -o $BUILD_DIR/vendor/selenium/selenium.jar
 
 # Download google chrome driver
