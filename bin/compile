@@ -41,7 +41,7 @@ topic "Updating apt caches"
 apt-get $APT_OPTIONS update | indent
 
 topic "Fetching .debs for xserver-xorg-core libgl1-mesa-dri xvfb libglide3 xfs unzip"
-apt-get $APT_OPTIONS -y -d install xserver-xorg-core libgl1-mesa-dri xvfb libglide3 xfs unzip | indent
+apt-get $APT_OPTIONS -y -d install xserver-xorg-core libgl1-mesa-dri xvfb libglide3 xfs unzip firefox chromedriver | indent
 
 mkdir -p $BUILD_DIR/.apt
 
